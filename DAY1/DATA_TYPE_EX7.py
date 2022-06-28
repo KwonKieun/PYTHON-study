@@ -7,9 +7,9 @@ array = []
 
 while True:
     a = input("문자열을 입력하세요 : ")
-    array.append(a)
     if a == ' ':
-        array.pop(-1)
         break
-    
-print([i for i in array])
+    array.append(a)
+
+for name in array:
+    print(name, end=',')
