@@ -1,0 +1,35 @@
+from bisect import bisect_left, bisect_right
+
+N = int(input())
+
+a = list(map(int, input().split()))
+
+# 이진 탐색 소스코드 구현 (반복문) 그래프
+def binary_search(array, target, start, end):
+	while start <= end:
+		mid = (start + end) // 2
+		# 찾은 경우 중간점 인덱스 반환
+		if array[mid] == target:
+			return mid
+		# 중간점의 값보다 찾고자 하는 값이 작은 경우 왼쪽 확인
+		elif array[mid] > target:
+			end = mid - 1
+		# 중간점의 값보다 찾고자 하는 값이 큰 경우 오른쪽 확인
+		else:
+			start = mid + 1
+	return None
+
+# n(원소의 개수)과 target(찾고자 하는 값)을 입력 받기
+M = int(input())
+target = list(map(int, input().split()))
+
+# 전체 원소 입력 받기
+
+i = 1
+for i in range(len(target)):
+    # 이진 탐색 수행 결과 출력
+    result = binary_search(a, target[i-1], 0, N - 1)
+    if result == None:
+        print("No")
+    else:
+        print("Yes")
